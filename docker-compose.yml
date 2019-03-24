@@ -7,6 +7,7 @@ services:
         environment:
             - POSTGRES_USER=myapp
             - POSTGRES_PASSWORD=my-password
+            - POSTGRES_DB=database
     wildfly:
         image: frmichetti/wildfly-postgresql
         ports:
