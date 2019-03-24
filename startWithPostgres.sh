@@ -4,14 +4,14 @@ if [ ! -f wildfly.started ]; then
 JBOSS_CLI=$WILDFLY_HOME/bin/jboss-cli.sh
 
 function wait_for_server() {
-  until `$JBOSS_CLI -c "ls /deployment" &> /dev/null`; do
+  until `$JBOSS_CLI -c "ls /deployments" &> /dev/null`; do
     echo "Waiting"
     sleep 1
   done
 }
 
 echo "=> Starting WildFly server"
-$WILDFLY_HOME/bin/standalone.sh -b=0.0.0.0 -c standalone.xml > /dev/null &
+$WILDFLY_HOME/bin/standalone.sh -b=0.0.0.0 -bmanagement=0.0.0.0 -c standalone.xml > /dev/null &
 
 echo "=> Waiting for the server to boot"
 wait_for_server

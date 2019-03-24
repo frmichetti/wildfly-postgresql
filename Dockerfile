@@ -1,8 +1,8 @@
-FROM tonda100/wildfly-empty
-MAINTAINER Antonin Stoklasek
+FROM frmichetti/wildfly-empty
+MAINTAINER Felipe Rodrigues Michetti
 
-ENV DATASOURCE_NAME ApplicationDS
-ENV DATASOURCE_JNDI java:/ApplicationDS
+ENV DATASOURCE_NAME postgresDS
+ENV DATASOURCE_JNDI java:/postgresDS
 
 ENV DB_HOST database
 ENV DB_PORT 5432
@@ -11,8 +11,8 @@ ENV DB_PASS password
 ENV DB_NAME dbname
 
 # create temporary deployment dir, because wars can deploy after the datasource is created
-RUN mkdir /tmp/deploments
-ENV DEPLOY_DIR /tmp/deploments
+RUN mkdir /tmp/deployments
+ENV DEPLOY_DIR /tmp/deployments
 
 RUN mkdir /tmp/jboss-cli
 ENV CLI_DIR /tmp/jboss-cli
