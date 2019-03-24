@@ -15,7 +15,7 @@ services:
             - "9990:9990"
         environment:
             - DB_HOST=postgres
-            - DB_NAME=myapp
+            - DB_NAME=database
             - DB_USER=myapp
             - DB_PASS=my-password
         depends_on:

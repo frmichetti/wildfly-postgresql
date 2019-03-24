@@ -25,7 +25,7 @@ module add --name=org.postgres --resources=/tmp/postgresql-9.4.1212.jar --depend
 /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver)
 
 # Add the datasource
-data-source add --jndi-name=$DATASOURCE_JNDI --name=$DATASOURCE_NAME --connection-url=jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_NAME --driver-name=postgres --user-name=$DB_USER --password=$DB_PASS
+# data-source add --jndi-name=$DATASOURCE_JNDI --name=$DATASOURCE_NAME --connection-url=jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_NAME --driver-name=postgres --user-name=$DB_USER --password=$DB_PASS
 
 # Execute the batch
 run-batch
